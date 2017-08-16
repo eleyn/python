@@ -24,19 +24,19 @@ class BinaryTree:
             self.counter += 1
             
         else:
-            self._add(data,b)
+            self.help_add(data,b)
                     
-    def _add(self, data, node):
+    def help_add(self, data, node):
         if data < node.data:
             if node.left != None:
-                self._add(data, node.left)
+                self.help_add(data, node.left)
             else:
                 node.left = Node(data)
                 self.counter += 1
 
         else:
             if node.right != None:
-                self._add(data, node.right)
+                self.help_add(data, node.right)
             else:
                 node.right = Node(data)
                 self.counter += 1       
@@ -46,17 +46,17 @@ class BinaryTree:
 
     def search(self,x):
         if self.root != None:
-            return self._search(data, self.root)
+            return self.help_search(data, self.root)
         else:
             return False
 
-    def _search(self, data, node):
+    def help_search(self, data, node):
         if data == node.data:
             return True
         elif data < node.data and node.left != None:
-            self._search(data, node.left)
+            self.help_search(data, node.left)
         elif data > node.data and node.right != None:
-            self._search(data, node.right)
+            self.help_search(data, node.right)
         else:
             return False
 
